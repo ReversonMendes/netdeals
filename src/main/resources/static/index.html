@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Hierarquia de Colaboradores</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body ng-controller="HierarchyController">
+<div class="container">
+    <h1>Hierarquia de Colaboradores</h1>
+
+    <form>
+        <input type="text" ng-model="newEmployee.nome" placeholder="Nome do Colaborador">
+        <input type="number" ng-model="newEmployee.nivel" placeholder="Nível" min="1" max="5">
+        <input type="text" ng-model="newEmployee.senha" placeholder="Senha">
+        <button ng-disabled="!newEmployee.nome || !newEmployee.senha" ng-click="addEmployee()">Adicionar Colaborador</button>
+    </form>
+
+    <!-- Formulário de edição oculto -->
+    <div ng-show="editing">
+        <h2>Editar Colaborador</h2>
+        <form ng-submit="saveEditedEmployee()">
+            <input type="text" ng-model="editedEmployee.nome" placeholder="Nome do Colaborador" required>
+            <input type="number" ng-model="editedEmployee.nivel" placeholder="Nível" min="1" max="5">
+            <input type="text" ng-model="editedEmployee.senha" placeholder="Senha" required>
+            <button type="submit">Salvar</button>
+            <button ng-click="cancelEdit()">Cancelar</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Colaborador</th>
+            <th>Nível Hierárquico</th>
+            <th>Score</th>
+            <th>Força da Senha</th>
+            <th>Ações</th>
+        </tr>
+        <tbody>
+        <tr ng-repeat="employee in employees">
+            <td ng-class="'level-' + employee.nivel">{{employee.nome}}</td>
+            <td>Nível {{employee.nivel}}</td>
+            <td>{{employee.score}}%</td>
+            <td ng-class="employee.forca">{{employee.forca}}</td>
+            <td>
+                <button ng-click="editEmployee(employee)">Editar</button>
+                <button ng-click="deleteEmployee(employee)">Excluir</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

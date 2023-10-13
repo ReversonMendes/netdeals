@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.level-1 {
+    font-weight: bold;
+}
+
+.level-2 {
+    padding-left: 20px;
+}
+
+.level-3 {
+    padding-left: 40px;
+}
+
+.level-4 {
+    padding-left: 60px;
+}
+
+.level-4 {
+    padding-left: 70px;
+}
+
+.MUITO_FORTE {
+    background-color: green;
+}
+
+.FORTE {
+    background-color: rgb(68, 233, 68);
+}
+
+.BOM {
+    background-color: blue;
+}
+
+.FRACO {
+    background-color: orange;
+}
+
+.MUITO_FRACO {
+    background-color: red;
+}
