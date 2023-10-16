@@ -25,10 +25,9 @@ public class ColaboradorController {
 
     @PostMapping
     public ResponseEntity<ColaboradorDto> registerColaborador(@RequestBody ColaboradorDto colaboradorDto, UriComponentsBuilder uriComponentsBuilder){
-       // colaboradorDto = validarSenha(colaboradorDto);
         ColaboradorDto colaboradorDtoRegister = colaboradorService.createColaborador(colaboradorDto);
-        URI cargo = uriComponentsBuilder.path("/colaboradores/{id}").buildAndExpand(colaboradorDtoRegister.getId()).toUri();
-        return ResponseEntity.created(cargo).body(colaboradorDtoRegister);
+        URI url = uriComponentsBuilder.path("/colaboradores/{id}").buildAndExpand(colaboradorDtoRegister.getId()).toUri();
+        return ResponseEntity.created(url).body(colaboradorDtoRegister);
     }
 
     @DeleteMapping("/{id}")
